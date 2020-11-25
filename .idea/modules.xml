@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../iGlass/.idea/iGlass.iml" filepath="$PROJECT_DIR$/../iGlass/.idea/iGlass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/iGlass-infinity-pyCharm.iml" filepath="$PROJECT_DIR$/.idea/iGlass-infinity-pyCharm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mic_hat/.idea/mic_hat.iml" filepath="$PROJECT_DIR$/../mic_hat/.idea/mic_hat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test_project/.idea/test_project.iml" filepath="$PROJECT_DIR$/../test_project/.idea/test_project.iml" />
+    </modules>
+  </component>
+</project>
