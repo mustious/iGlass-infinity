@@ -53,10 +53,17 @@ pip3 install SpeechRecognition
 ```
    Documentation: <https://pypi.org/project/SpeechRecognition/>
             Reference: <https://realpython.com/python-speech-recognition/>
-
+### pyaudio
+```
+sudo apt-get install python-pyaudio python3-pyaudio
+```
+or
+```
+sudo pip install pyaudio
+```
 ### eSpeak
 ```
-sudo apt-get espeak
+sudo apt-get install espeak
 ```
 
 ### pico2wave
