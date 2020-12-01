@@ -31,6 +31,13 @@ pip3 install picamera
 pip3 install Chatterbot==1.0.2
 ```
    Documentation: <https://chatterbot.readthedocs.io/en/stable/>
+### oauth2client and other google-auth libraries
+```
+sudo pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
+```
+sudo pip3 install --upgrade oauth2client google-auth
+```
    
 ### google-cloud-vision v1.0.0:
 ```
