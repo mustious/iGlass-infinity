@@ -2,7 +2,6 @@ import speech_recognition as sr
 import os
 
 project_root_path = os.path.abspath(os.path.dirname(__file__))
-beep_tone_path = os.path.join(project_root_path, ".tones/beep_ping.wav")
 
 
 class SpeechRecognizer:
@@ -20,8 +19,10 @@ class SpeechRecognizer:
 
     def beep_sound(self):
         """
-
+        adds a beep tone to signify iGlass is waiting a command
         """
+
+        beep_tone_path = os.path.join(project_root_path, ".tones/beep_ping.wav")
         try:
             if os.path.exists(beep_tone_path):
                 os.system(f"aplay {beep_tone_path}")
