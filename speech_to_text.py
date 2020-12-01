@@ -1,4 +1,8 @@
 import speech_recognition as sr
+import os
+
+project_root_path = os.path.abspath(os.path.dirname(__file__))
+beep_tone_path = os.path.join(project_root_path, ".tones/beep_ping.wav")
 
 
 class SpeechRecognizer:
@@ -14,6 +18,16 @@ class SpeechRecognizer:
         self.recognise = sr.Recognizer()
         self.mic = sr.Microphone()
 
+    def beep_sound(self):
+        """
+
+        """
+        try:
+            if os.path.exists(beep_tone_path):
+                os.system(f"aplay {beep_tone_path}")
+        except:
+            pass
+
     def listen(self):
         """
         triggers the mic, coverts audio to text
@@ -24,6 +38,8 @@ class SpeechRecognizer:
         """
         response = {"successful": None,
                     "failure": None}
+
+        self.beep_sound()
 
         with self.mic as source:
             self.recognise.adjust_for_ambient_noise(source)  # reduces noise
