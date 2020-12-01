@@ -1,3 +1,4 @@
+
 # iGlass-infinity
 This project aims to provide an intelligent visual aid for blind and visually impaired to help them navigate their environment, read newpapers, books and magazines and also browse the internet
 ![alt text](https://github.com/mustious/iGlass/blob/master/iGlass_workflow.jpg)
@@ -117,4 +118,55 @@ chown asterisk:asterisk extensions_custom.conf  # changes ownership user_group=a
 * command to load alsa state
     ```
     > alsactl --file asound.state restore
+    ```
+## Issues and Fixes
+### ALSA springing up errors like:
+```
+ALSA lib confmisc.c:768:(parse_card) cannot find card '0'
+ALSA lib conf.c:4292:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4292:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1251:(snd_func_refer) error evaluating name
+...
+```
+This is likely occurs from incorrect configuration when setting up ALSA
+* confirm the proper card number, device number and subdevice number using the command:
+    ```
+    > aplay -l
+    ```
+    ```
+    **** List of CAPTURE Hardware Devices ****
+    card 0: seeed2micvoicec [seeed-2mic-voicecard], device 0: bcm2835-i2s-wm8960-hifi wm8960-hifi-0 []
+      Subdevices: 1/1
+      Subdevice #0: subdevice #0
+    
+    ```
+* edit the file ~/.asoundrc with proper device numbers
+    ```
+    > sudo nano ~/.asoundrc
+    ```
+    into:
+    ```
+    pcm.!default {
+      type plug
+      slave {
+        pcm "hw:0,0"
+      }
+    }
+    
+    ctl.!default {
+        type hw
+        card 0
+    }
+    ```
+* also, edit the file /usr/share/alsa/alsa.conf
+    ```
+    sudo nano /usr/share/alsa/alsa.conf
+    ```
+    search and replace the following lines with proper numbers
+    ```
+    ...
+    defaults.ctl.card 0
+    defaults.pcm.card 0
+    ...
     ```
