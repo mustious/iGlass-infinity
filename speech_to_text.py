@@ -2,6 +2,15 @@ import speech_recognition as sr
 import os
 
 project_root_path = os.path.abspath(os.path.dirname(__file__))
+beep_tone_path = os.path.join(project_root_path, ".tones/beep_ping.wav")
+google_keys_path = os.environ.get("google_keys_path")
+
+# checks whether the environment variable value is valid and path exists
+google_json_path_exists = isinstance(google_keys_path, str) and os.path.exists(google_keys_path)
+
+if google_json_path_exists:
+    with open(google_keys_path) as key_json:
+        google_key = key_json.read()
 
 
 class SpeechRecognizer:
@@ -19,10 +28,9 @@ class SpeechRecognizer:
 
     def beep_sound(self):
         """
-        adds a beep tone to signify iGlass is waiting a command
+        adds a beep tone to signify iGlass is waiting for command
         """
 
-        beep_tone_path = os.path.join(project_root_path, ".tones/beep_ping.wav")
         try:
             if os.path.exists(beep_tone_path):
                 os.system(f"aplay {beep_tone_path}")
@@ -37,8 +45,8 @@ class SpeechRecognizer:
         :return: response
         :rtype dict
         """
-        response = {"successful": None,
-                    "failure": None}
+        response = {"success": None,
+                    "error": None}
 
         self.beep_sound()
 
@@ -47,13 +55,18 @@ class SpeechRecognizer:
             voice = self.recognise.listen(source)
 
         try:
+            if google_json_path_exists:
+                response_google_cloud = self.recognise.recognize_google_cloud(audio_data=voice, credentials_json=google_key)
+                response["success"] = response_google_cloud
+                return response
+
             response_google = self.recognise.recognize_google(audio_data=voice)
-            response["successful"] = response_google
+            response["success"] = response_google
             return response
 
         except sr.RequestError:
             # network related error
-            response["failure"] = "Request error please try again"
+            response["fail"] = "Request error please try again"
             return response
 
         except sr.UnknownValueError:
@@ -61,5 +74,5 @@ class SpeechRecognizer:
             occurs when there is silence in speech
             this returns a None value which is neglected by the Brain instance 
             """
-            # response["failure"] = "Unknown Value Error"
+            response["fail"] = "Unknown Value Error"
             return response
