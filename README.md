@@ -98,7 +98,10 @@ cp extensions.conf extensions_customs.conf
 chown asterisk:asterisk extensions_custom.conf  # changes ownership user_group=asterisk and user=asterisk
 ```
 ### Setting Up Google Cloud Environment
-* Installations
+* set up a new cloud progect google project 
+* create credentials and set <b>role</b> to <b>admin</b>
+* create and download key of created credential in json format. [checkout this guide](https://cloud.google.com/docs/authentication/getting-started)
+
 
 ### Setting Up ReSpeaker 2-Mics Pi Hat
 #### Official Documentation: http://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/
