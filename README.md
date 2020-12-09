@@ -27,10 +27,19 @@ sudo apt-get python-pip
 pip3 install picamera
 ```
 ### Chatterbot v1.0.2:
+This library is not used anymore. Google DialogFlow works more efficiently for chatterbot 
 ```sh
 pip3 install Chatterbot==1.0.2
 ```
-   Documentation: <https://chatterbot.readthedocs.io/en/stable/>
+Documentation: <https://chatterbot.readthedocs.io/en/stable/>
+
+### Dialogflow v1.1.0:
+```sh
+sudo pip install dialogflow
+```
+Documentation: <https://cloud.google.com/dialogflow/es/docs> <br/>
+Python Reference: <https://cloud.google.com/dialogflow/es/docs/reference/libraries/python>
+
 ### oauth2client and other google-auth libraries
 ```
 sudo pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
@@ -59,8 +68,8 @@ pip3 install pyttsx3==2.7
 ```sh
 pip3 install SpeechRecognition
 ```
-   Documentation: <https://pypi.org/project/SpeechRecognition/>
-            Reference: <https://realpython.com/python-speech-recognition/>
+Documentation: <https://pypi.org/project/SpeechRecognition/> <br/>
+Reference: <https://realpython.com/python-speech-recognition/>
 ### pyaudio
 ```
 sudo apt-get install python-pyaudio python3-pyaudio
