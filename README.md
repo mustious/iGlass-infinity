@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # iGlass-infinity
 This project aims to provide an intelligent visual aid for blind and visually impaired to help them navigate their environment, read newpapers, books and magazines and also browse the internet
@@ -110,6 +111,15 @@ chown asterisk:asterisk extensions_custom.conf  # changes ownership user_group=a
 * set up a new cloud progect google project 
 * create credentials and set <b>role</b> to <b>admin</b>
 * create and download key of created credential in json format. [checkout this guide](https://cloud.google.com/docs/authentication/getting-started)
+copy the download folder to a specified folder of raspberry pi (in this case it is stored in a '.keys/' folder)
+```
+export GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
+```
+verify if the environment variable has been added successfully
+```
+printenv
+```
+Here is a guide on [getting started with authentication](https://cloud.google.com/docs/authentication/getting-started#linux-or-macos)
 
 
 ### Setting Up ReSpeaker 2-Mics Pi Hat
@@ -189,3 +199,7 @@ This is likely occurs from incorrect configuration when setting up ALSA
     defaults.pcm.card 0
     ...
     ```
+=======
+# iGlass-infinity
+This project aims to provide an intelligent visual aid for blind and visually impaired to help them navigate their environment, read newpapers, books and magazines and also browse the internet
+>>>>>>> eb306a1f16f2e271523dffbcede10e2bfa785fba
