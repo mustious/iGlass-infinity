@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # iGlass-infinity
 This project aims to provide an intelligent visual aid for blind and visually impaired to help them navigate their environment, read newpapers, books and magazines and also browse the internet
 ![alt text](https://github.com/mustious/iGlass/blob/master/iGlass_workflow.jpg)
@@ -199,7 +197,3 @@ This is likely occurs from incorrect configuration when setting up ALSA
     defaults.pcm.card 0
     ...
     ```
-=======
-# iGlass-infinity
-This project aims to provide an intelligent visual aid for blind and visually impaired to help them navigate their environment, read newpapers, books and magazines and also browse the internet
->>>>>>> eb306a1f16f2e271523dffbcede10e2bfa785fba
