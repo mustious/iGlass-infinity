@@ -109,7 +109,11 @@ chown asterisk:asterisk extensions_custom.conf  # changes ownership user_group=a
 * set up a new cloud progect google project 
 * create credentials and set <b>role</b> to <b>admin</b>
 * create and download key of created credential in json format. [checkout this guide](https://cloud.google.com/docs/authentication/getting-started)
-copy the download folder to a specified folder of raspberry pi (in this case it is stored in a '.keys/' folder)
+copy the download folder to a specified folder of raspberry pi (in this case it was stored in a '.keys/' folder)
+```
+sudo nano /etc/profile
+```
+copy the next line of command into the last line of /etc/profile file
 ```
 export GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
 ```
@@ -197,3 +201,14 @@ This is likely occurs from incorrect configuration when setting up ALSA
     defaults.pcm.card 0
     ...
     ```
+### grpc and grpcio library errors - INVALID ARGUMENT
+upon trying to import the dialogflow library it might display an <b>INVALID ARGUMENT</b> error
+This [github discussion](https://github.com/googlesamples/assistant-sdk-python/issues/235) helped alot
+I tried building <i>grpcio<\i> library from source but it keeps failing (my raspberry pi disconnects entirely from wi-fi)
+I had to install a pervious version of <i>grpcio<\i> for it to work.
+Here the are fixes:
+```
+sudo pip uninstall grpc grpcio
+rm -rf ~/.cache/pip/*
+sudo pip3 install grpcio==1.29.0
+```
