@@ -27,6 +27,7 @@ def capture_image():
             time.sleep(1)  # one second delay for better capture
             my_camera.capture(image_path)
         processed_image_path = preprocess_image(image_path)
+        camera.close()
         return processed_image_path
 
     except:
