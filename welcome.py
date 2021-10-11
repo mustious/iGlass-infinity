@@ -18,6 +18,9 @@ elif 12 <= current_hour < 17:
 else:
     greeting += "evening"
 
+welcome_message1 = "please press a button and say a command"
+welcome_message2 = "To get help using this device, press a button and say help"
+
 speaker = speak_out.SpeakOut()
 
 try:
@@ -28,6 +31,9 @@ try:
     speaker.speak(welcome_message)
     time.sleep(1)
     speaker.speak(greeting)
+    time.sleep(1)
+    speaker.speak(welcome_message1)
+    speaker.speak(welcome_message2)
 
 except:
     print("path does not exist")
